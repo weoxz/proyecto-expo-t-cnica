@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.cuadernodecomunicaciones"
+    namespace = "com.example.loginscreen"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.cuadernodecomunicaciones"
+        applicationId = "com.example.loginscreen"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
@@ -36,6 +36,7 @@ android {
 }
 
 dependencies {
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)

@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "cuaderno de comunicaciones"
 include(":app")
- 
+include(":app:loginscreen")
