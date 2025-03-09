@@ -9,6 +9,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CuadernoDeComunicaciones">
         <activity
+            android:name=".SecondScreen"
+            android:exported="false" />
+        <activity
             android:name=".loginScreen"
             android:exported="true">
             <intent-filter>

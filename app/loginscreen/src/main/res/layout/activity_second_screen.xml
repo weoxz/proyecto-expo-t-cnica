@@ -5,8 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".loginScreen">
-
+    tools:context=".SecondScreen">
     <TextView
         android:layout_width="275sp"
         android:layout_height="44sp"
@@ -22,7 +21,7 @@
     <TextView
         android:layout_width="269sp"
         android:layout_height="36sp"
-        android:text="Digite su usuario."
+        android:text="Digite su cedula."
         android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,7 +43,7 @@
     <TextView
         android:layout_width="269sp"
         android:layout_height="36sp"
-        android:text="Digite su clave."
+        android:text="Digite su seccion."
         android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -65,19 +64,19 @@
 
 
     <TextView
-        android:layout_width="269sp"
-        android:layout_height="36sp"
-        android:text="¿Aun no tienes cuenta?"
+        android:layout_width="161dp"
+        android:layout_height="37dp"
+        android:text="¿Todo listo?"
         android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.345"
+        app:layout_constraintHorizontal_bias="0.436"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.707" />
+        app:layout_constraintVertical_bias="0.719" />
 
     <Button
-        android:id="@+id/NextScreen"
+        android:id="@+id/OtherScreen"
         android:layout_width="105dp"
         android:layout_height="46dp"
         android:text="Toca aqui."
@@ -85,10 +84,9 @@
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.947"
+        app:layout_constraintHorizontal_bias="0.803"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.716" />
-
+        app:layout_constraintVertical_bias="0.728" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
