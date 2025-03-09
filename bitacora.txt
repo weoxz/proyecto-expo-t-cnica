@@ -1,0 +1,16 @@
+este README será utilizado como una bitácora en el proyecto 
+(uso será de esta manera cada integrante para que tendrá una sección en el archivo que contiene el nombre el encargo y la fecha la forma de entrar y editar es en la carpeta base del proyecto)
+
+Ian Caleb Ortiz Lopez 'encargo: desarrollo de data base' 
+8/3/2025
+se añadió las dependencias para el acceso al internet de el proyecto
+y los paquetes de la conexión a php y MySQL, se creo un codigo de php y se logro la conexión al MySQL "el data base"
+de forma exitosa 
+  
+Keylor David Vargas chinchilla 'encargo: desarrollo de codigo'
+Creo parte del inicio de sección parte visual aun sin funcionamiento pero parte visual echa
+
+
+
+Kay Daniel Salas Fonseca 'encargo: desarrolla de ui'
+
