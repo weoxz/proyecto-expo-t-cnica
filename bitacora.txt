@@ -9,7 +9,7 @@ de forma exitosa
   
 Keylor David Vargas chinchilla 'encargo: desarrollo de codigo'
 Creo parte del inicio de sección parte visual aun sin funcionamiento pero parte visual echa
-
+Añadio segunda pantalla y incluyo el botón con la función de que cambia de screen 1 a screen2 
 
 
 Kay Daniel Salas Fonseca 'encargo: desarrolla de ui'
