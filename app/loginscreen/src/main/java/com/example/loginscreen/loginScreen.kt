@@ -1,7 +1,9 @@
 package com.example.loginscreen
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -28,6 +30,15 @@ class loginScreen : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+
+        // Añade el listener para el botón NextScreenButton
+        val nextScreenButton: Button = findViewById(R.id.NextScreenButton)
+        nextScreenButton.setOnClickListener {
+            val intent = Intent(this, SecondLoginScreen::class.java)
+            startActivity(intent)
+            // Si quieres cerrar loginScreen después de abrir SecondLoginScreen, usa:
+            // finish()
         }
     }
 

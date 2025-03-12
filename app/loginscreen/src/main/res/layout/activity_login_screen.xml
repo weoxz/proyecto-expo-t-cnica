@@ -71,9 +71,38 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="clickButtonIngresar"
-        android:text="ingersar"
-        tools:layout_editor_absoluteX="155dp"
-        tools:layout_editor_absoluteY="523dp" />
+        android:text="ingresar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.651" />
+
+
+    <Button
+        android:id="@+id/NextScreenButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="clickButtonIngresar"
+        android:text="toca aqui."
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.946"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.836" />
+
+    <TextView
+        android:layout_width="283dp"
+        android:layout_height="34dp"
+        android:text="¿Aun no tienes cuenta?"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.125"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.829" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

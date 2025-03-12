@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">loginScreen</string>
     <string name="porfavor_digite_su_usuario">Porfavor digite su usuario.</string>
+    <string name="notifications_book">Notifications Book</string>
 </resources>
