@@ -11,8 +11,9 @@ se añadió la conexión de al Server y se puede ingresar datos a la base de dat
   
 Keylor David Vargas chinchilla 'encargo: desarrollo de codigo'
 8/3/2025
-Creo parte del inicio de sección parte visual aun sin funcionamiento pero parte visual echa
-Añadio segunda pantalla y incluyo el botón con la función de que cambia de screen 1 a screen2 
+9/3/2025 Creo parte del inicio de sección parte visual aun sin funcionamiento pero parte visual echa
+10/3/2025 Añadio segunda pantalla y incluyo el botón con la función de que cambia de screen 1 a screen2 
+11/3/2025 se arreglo la parte del código borrado y se volvió a integrar el botón de siguiente pantalla (toca aqui)
 
 
 Kay Daniel Salas Fonseca 'encargo: desarrolla de ui'
