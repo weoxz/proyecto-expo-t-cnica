@@ -13,11 +13,13 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.google.android.material.button.MaterialButton // Importa MaterialButton
 
 class loginScreen : AppCompatActivity() {
 
     private lateinit var txtCedula: EditText
     private lateinit var txtCodigo: EditText
+    private lateinit var nextScreenButton: MaterialButton // Declara MaterialButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +27,7 @@ class loginScreen : AppCompatActivity() {
 
         txtCedula = findViewById(R.id.txtCedula)
         txtCodigo = findViewById(R.id.txtCodigo)
+        nextScreenButton = findViewById(R.id.NextScreenButton) // Inicializa MaterialButton
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -32,8 +35,7 @@ class loginScreen : AppCompatActivity() {
             insets
         }
 
-        // Añade el listener para el botón NextScreenButton
-        val nextScreenButton: Button = findViewById(R.id.NextScreenButton)
+        // Añade el listener para el MaterialButton NextScreenButton
         nextScreenButton.setOnClickListener {
             val intent = Intent(this, SecondLoginScreen::class.java)
             startActivity(intent)
