@@ -6,76 +6,70 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="loginScreen"
-    android:background="@drawable/whas"
+    android:background="@drawable/loginss"
     >
-
-    <TextView
-        android:layout_width="275sp"
-        android:layout_height="44sp"
-        android:text="Notifications Book"
-        android:textSize="32dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.56"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.022" />
 
 
     <EditText
         android:id="@+id/txtCedula"
-        android:layout_width="290dp"
-        android:layout_height="51dp"
-        android:textColor="#FFFFFF"
+        android:layout_width="194dp"
+        android:layout_height="49dp"
+        android:text="Usuario."
+        android:textColor="@color/black"
+        android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.628"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.404" />
+        app:layout_constraintVertical_bias="0.414" />
 
     <EditText
         android:id="@+id/txtCodigo"
-        android:layout_width="290dp"
-        android:textColor="#FFFFFF"
-        android:layout_height="51dp"
+        android:layout_width="197dp"
+        android:layout_height="43dp"
         android:onClick="clickButtoningresar"
+        android:textColor="@color/black"
+        android:text="Contraseña."
+        android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.694"
+        app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.56" />
+        app:layout_constraintVertical_bias="0.482" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button"
-        android:layout_width="375dp"
-        android:layout_height="81dp"
-        android:backgroundTint="#4CAF50"
+        android:layout_width="146dp"
+        android:layout_height="32dp"
+        android:backgroundTint="#27A7A6"
         android:onClick="clickButtonIngresar"
         android:text="ingresar"
         android:textColor="@color/black"
+        android:textSize="10dp"
         app:cornerRadius="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.698" />
+        app:layout_constraintVertical_bias="0.552" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/NextScreenButton"
-        android:layout_width="111dp"
-        android:layout_height="55dp"
-        android:backgroundTint="#4CAF50"
+        android:layout_width="180dp"
+        android:layout_height="57dp"
+        android:backgroundTint="#27A7A6"
         android:onClick="clickButtonIngresar"
-        android:text="SING IN."
+        android:text="Aun no tienes cuenta? Toca aqui."
         android:textColor="@color/black"
         app:cornerRadius="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.653"
+        app:layout_constraintHorizontal_bias="0.528"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.878" />
+        app:layout_constraintVertical_bias="0.648" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
