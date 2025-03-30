@@ -14,6 +14,7 @@ Keylor David Vargas chinchilla 'encargo: desarrollo de codigo'
 9/3/2025 Creo parte del inicio de sección parte visual aun sin funcionamiento pero parte visual echa
 10/3/2025 Añadio segunda pantalla y incluyo el botón con la función de que cambia de screen 1 a screen2 
 11/3/2025 se arreglo la parte del código borrado y se volvió a integrar el botón de siguiente pantalla (toca aqui)
+Keylor david añadió diseño propio el dia 30 de marzo 2025
 
 
 Kay Daniel Salas Fonseca 'encargo: desarrolla de ui'
