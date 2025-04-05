@@ -5,6 +5,99 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SecondLoginScreen">
+    tools:context=".SecondLoginScreen"
+    android:background="@drawable/secondloginnn">
+
+    <!-- Campo de Usuario -->
+
+    <!-- Campo de Contraseña -->
+
+    <!-- Campo de Sección -->
+
+    <!-- Selección de Rol -->
+    <EditText
+        android:id="@+id/txtCedula"
+        android:layout_width="194dp"
+        android:layout_height="49dp"
+        android:text="Usuario"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.409" />
+
+    <EditText
+        android:id="@+id/txtCodigo"
+        android:layout_width="197dp"
+        android:layout_height="43dp"
+        android:text="Contraseña"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.466" />
+
+    <EditText
+        android:id="@+id/TxtNombre"
+        android:layout_width="197dp"
+        android:layout_height="43dp"
+        android:text="Sección"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.518" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupRol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.6">
+
+        <RadioButton
+            android:id="@+id/radioEncargado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Encargado"
+            android:textColor="@color/black"
+            android:checked="true" />
+
+        <RadioButton
+            android:id="@+id/radioEstudiante"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Estudiante"
+            android:textColor="@color/black" />
+    </RadioGroup>
+
+    <!-- Botón de Confirmación -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/NextScreenUserr"
+        android:layout_width="180dp"
+        android:layout_height="57dp"
+        android:backgroundTint="#27A7A6"
+        android:text="Todo listo? toca aqui"
+        android:textColor="@color/black"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.679" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
