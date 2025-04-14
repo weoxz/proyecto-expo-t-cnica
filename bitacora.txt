@@ -16,6 +16,8 @@ Keylor David Vargas chinchilla 'encargo: desarrollo de codigo'
 11/3/2025 se arreglo la parte del código borrado y se volvió a integrar el botón de siguiente pantalla (toca aqui)
 Keylor david añadió diseño propio el dia 30 de marzo 2025
 5/4/25 david añadió otra parte de diseño para crear cuenta SecondLoginScreen
+lunes 14 de abril david añadió función en la cual se añade función de elegir imagen y nueva pantalla para ingreso nuevo.
+
 
 
 
