@@ -1,22 +1,30 @@
 package com.example.loginscreen
 
-import android.content.Intent
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
-import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 
 class ScreenAftherLog : AppCompatActivity() {
+
+    private lateinit var NameComplete: EditText
+    private lateinit var SeccionEstudiante: EditText
 
     private val requestPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
@@ -42,6 +50,8 @@ class ScreenAftherLog : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_screen_afther_log)
+        NameComplete = findViewById(R.id.NameComplete)
+        SeccionEstudiante= findViewById(R.id.SeccionEstudiante)
 
         // Configuración del TextView existente
         val myTextView = findViewById<TextView>(R.id.textView)
@@ -80,5 +90,27 @@ class ScreenAftherLog : AppCompatActivity() {
             type = "image/*"
         }
         pickImageLauncher.launch(intent)
+    }
+    fun clickButtonUpdateDB(view: View){
+        val url = "http://192.168.100.130/android_mysql_proyectExpotecnica/insertar_Estudiantes.php"
+        val queue = Volley.newRequestQueue(this)
+
+        val resultadoPost = object : StringRequest(
+            Request.Method.POST, url,
+            Response.Listener<String> { response ->
+                Toast.makeText(this, "Datos ingresados: $response", Toast.LENGTH_SHORT).show()
+            },
+            Response.ErrorListener { error ->
+                Toast.makeText(this, "Error: ${error.message ?: "Error desconocido"}", Toast.LENGTH_SHORT).show()
+            }) {
+            override fun getParams(): MutableMap<String, String> {
+                return mutableMapOf(
+                    "Nombre-de-Estudiantes" to NameComplete.text.toString(),
+                    "Sesión" to SeccionEstudiante.text.toString()
+                )
+            }
+        }
+        queue.add(resultadoPost)
+
     }
 }
