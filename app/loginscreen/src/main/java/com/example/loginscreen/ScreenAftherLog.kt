@@ -51,7 +51,7 @@ class ScreenAftherLog : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_screen_afther_log)
         NameComplete = findViewById(R.id.NameComplete)
-        SeccionEstudiante= findViewById(R.id.SeccionEstudiante)
+        SeccionEstudiante = findViewById(R.id.SeccionEstudiante)
 
         // Configuración del TextView existente
         val myTextView = findViewById<TextView>(R.id.textView)
@@ -62,6 +62,10 @@ class ScreenAftherLog : AppCompatActivity() {
             checkPermissionAndSelectImage()
         }
 
+        findViewById<Button>(R.id.NextScrenAfterData).setOnClickListener {
+            val intent = Intent(this, AftherEverything::class.java)
+            startActivity(intent)
+        }
 
         // Manejo de insets
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -91,7 +95,8 @@ class ScreenAftherLog : AppCompatActivity() {
         }
         pickImageLauncher.launch(intent)
     }
-    fun clickButtonUpdateDB(view: View){
+
+    fun clickButtonUpdateDB(view: View) {
         val url = "http://192.168.100.130/android_mysql_proyectExpotecnica/insertar_Estudiantes.php"
         val queue = Volley.newRequestQueue(this)
 
@@ -110,7 +115,7 @@ class ScreenAftherLog : AppCompatActivity() {
                 )
             }
         }
+//Yo si le se a lo que es programar perrooo!!! posdata No cambie nad
         queue.add(resultadoPost)
-
     }
 }
