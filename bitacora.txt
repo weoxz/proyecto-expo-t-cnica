@@ -18,6 +18,7 @@ Keylor david añadió diseño propio el dia 30 de marzo 2025
 5/4/25 david añadió otra parte de diseño para crear cuenta SecondLoginScreen
 lunes 14 de abril david añadió función en la cual se añade función de elegir imagen y nueva pantalla para ingreso nuevo.
 miércoles 16 de abril david añadió otra parte mas que son los botones cambien de color en la zona de msj datos de estudiante y enviar msj
+jueves 17 de abril david añadió 2 botones mas a la parte de ScreenAftherLog se espera conexión a base de datos local.
 
 
 
