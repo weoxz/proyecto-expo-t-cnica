@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    id("kotlin-parcelize") // Añade esto si necesitas parcelizar objetos
+    id("kotlin-parcelize") // Para facilitar parcelización de datos
 }
 
 android {
@@ -28,7 +28,7 @@ android {
     }
 
     buildFeatures {
-        viewBinding = true // Habilita View Binding aquí
+        viewBinding = true // Habilita View Binding (muy recomendable)
     }
 
     compileOptions {
@@ -52,7 +52,13 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     implementation("com.android.volley:volley:1.2.1")
 
-    // Dependencias ya incluidas en tus libs
-    // implementation(libs.androidx.appcompat)
-    // implementation(libs.androidx.core.ktx)
+
+    // CameraX (uso de cámara frontal)
+    implementation("androidx.camera:camera-core:1.4.2")
+    implementation("androidx.camera:camera-camera2:1.4.2")
+    implementation("androidx.camera:camera-lifecycle:1.4.2")
+    implementation("androidx.camera:camera-view:1.4.2")
+
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.9.10")
+
 }
