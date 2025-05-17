@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/main1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AftherEverything"
@@ -59,11 +59,11 @@
         android:id="@+id/contenedorMensajes"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:visibility="visible"
+        android:visibility="gone"
 
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <!-- Contenido de Mensajes Recibidos -->
         <TextView
@@ -72,51 +72,64 @@
             android:padding="16dp"
             android:text="MESSAGES RECEIVED DATA\nINCOMING MESSAGES"
             android:textSize="18sp" />
+
     </FrameLayout>
 
     <FrameLayout
         android:id="@+id/contenedorDatos"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_width="416dp"
+        android:layout_height="626dp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <!-- Contenido de Datos Estudiante -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="16dp"
+            tools:ignore="MissingConstraints">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="STUDENT DATA"
-                android:textSize="18sp"/>
+                android:textSize="18sp" />
 
             <TextView
+                android:id="@+id/NomText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="NOMBRE:"/>
+                android:text="NOMBRE:" />
 
             <TextView
+                android:id="@+id/numTextcedu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="NUMERO DE CEDULA:"/>
+                android:text="NUMERO DE CEDULA:" />
 
             <TextView
+                android:id="@+id/numTeltext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="CORREO ELECTRONICO:"/>
+                android:text="NUMERO TELEFONICO:" />
 
             <TextView
+                android:id="@+id/seccText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="SEXO:"/>
+                android:text="SECCIÓN:" />
+
+            <TextView
+                android:id="@+id/gradoText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="GRADO:" />
         </LinearLayout>
     </FrameLayout>
+
 
     <FrameLayout
         android:id="@+id/contenedorEnviar"
@@ -149,6 +162,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="SEND"/>
+
         </LinearLayout>
     </FrameLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,10 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/loginscreeen"
-    android:onClick="clickButtonUpdateDB"
     tools:layout_editor_absoluteX="11dp"
-    tools:layout_editor_absoluteY="0dp"
-    >
+    tools:layout_editor_absoluteY="0dp">
 
 
     <EditText
@@ -30,7 +28,6 @@
         android:layout_width="379dp"
         android:layout_height="53dp"
         android:background="@drawable/rounded_box"
-
         android:gravity="center"
         android:text="Nombre completo:                                                                     "
         app:layout_constraintBottom_toBottomOf="parent"
@@ -58,7 +55,6 @@
         android:layout_width="379dp"
         android:layout_height="53dp"
         android:background="@drawable/rounded_box"
-
         android:gravity="center"
         android:text="Sección:                                                                                        "
         app:layout_constraintBottom_toBottomOf="parent"
@@ -68,7 +64,7 @@
         app:layout_constraintVertical_bias="0.144" />
 
     <EditText
-        android:id="@+id/NumTelefonico"
+        android:id="@+id/NumCedula"
         android:layout_width="226dp"
         android:layout_height="60dp"
         android:elevation="1dp"
@@ -80,14 +76,26 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.36" />
 
+    <EditText
+        android:id="@+id/numTelefonico"
+        android:layout_width="226dp"
+        android:layout_height="60dp"
+        android:elevation="1dp"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.816"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499" />
+
     <TextView
-        android:id="@+id/numTel"
+        android:id="@+id/numcedu"
         android:layout_width="379dp"
         android:layout_height="53dp"
         android:background="@drawable/rounded_box"
-
         android:gravity="center"
-        android:text="Numero de telefono:                                                                  "
+        android:text="Numero de cedula:                                                                  "
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -95,17 +103,29 @@
         app:layout_constraintVertical_bias="0.367" />
 
     <TextView
+        android:id="@+id/numTel2"
+        android:layout_width="379dp"
+        android:layout_height="53dp"
+        android:background="@drawable/rounded_box"
+        android:gravity="center"
+        android:text="Numero de telefono:                                                                  "
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/Grado"
         android:layout_width="379dp"
         android:layout_height="53dp"
         android:background="@drawable/rounded_box"
-
         android:gravity="center"
         android:text="Grado:                                                                                          "
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.613" />
 
     <EditText
         android:id="@+id/GradoEst"
@@ -117,7 +137,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.685"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.613" />
 
     <EditText
         android:id="@+id/SeccionEstudiante"
@@ -162,22 +183,24 @@
         android:text="Subir datos"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.853"
+        app:layout_constraintHorizontal_bias="0.872"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.63" />
+        app:layout_constraintVertical_bias="0.699" />
 
     <Button
-        android:id="@+id/NextScrenAfterData"
-        android:layout_width="144dp"
-        android:layout_height="39dp"
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
         android:onClick="clickButtonUpdateDB"
-        android:text="Ingresar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.161"
+        app:layout_constraintHorizontal_bias="0.158"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.63" />
+        app:layout_constraintVertical_bias="0.708" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 

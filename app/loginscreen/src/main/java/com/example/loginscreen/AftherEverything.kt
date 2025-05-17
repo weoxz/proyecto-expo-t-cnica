@@ -1,18 +1,25 @@
+@file:Suppress("UnusedImport")
+
 package com.example.loginscreen
 
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.FrameLayout
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.android.volley.Request
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
+import org.json.JSONObject
+import android.content.SharedPreferences
+import org.json.JSONException
+
 
 class AftherEverything : AppCompatActivity() {
 
-    // Declaración de variables para las vistas
-    private lateinit var btnMsj: Button
-    private lateinit var btnDatosEstudiante: Button
-    private lateinit var btnEnviarMensaje: Button
     private lateinit var contenedorMensajes: FrameLayout
     private lateinit var contenedorDatos: FrameLayout
     private lateinit var contenedorEnviar: FrameLayout
@@ -21,60 +28,69 @@ class AftherEverything : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_afther_everything)
 
-        // Inicializar vistas
-        initViews()
-
-        // Configurar listeners
-        setupButtonListeners()
-
-        // Mostrar sección de mensajes por defecto
-        mostrarSeccion(1)
-    }
-
-    private fun initViews() {
-        btnMsj = findViewById(R.id.btnMsj)
-        btnDatosEstudiante = findViewById(R.id.btnDatosEstudiante)
-        btnEnviarMensaje = findViewById(R.id.btnEnviarMensaje)
         contenedorMensajes = findViewById(R.id.contenedorMensajes)
         contenedorDatos = findViewById(R.id.contenedorDatos)
         contenedorEnviar = findViewById(R.id.contenedorEnviar)
-    }
 
-    private fun setupButtonListeners() {
-        btnMsj.setOnClickListener { mostrarSeccion(1) }
-        btnDatosEstudiante.setOnClickListener { mostrarSeccion(2) }
-        btnEnviarMensaje.setOnClickListener { mostrarSeccion(3) }
-    }
+        val btnMsj = findViewById<Button>(R.id.btnMsj)
+        val btnDatosEstudiante = findViewById<Button>(R.id.btnDatosEstudiante)
+        val btnEnviarMensaje = findViewById<Button>(R.id.btnEnviarMensaje)
 
-    private fun mostrarSeccion(seccion: Int) {
-        // Resetear todos los botones a gris
-        resetButtons()
+        btnMsj.setOnClickListener {
+            mostrarContenedor(contenedorMensajes)
+        }
 
-        when (seccion) {
-            1 -> {
-                btnMsj.backgroundTintList = ContextCompat.getColorStateList(this, R.color.black)
-                contenedorMensajes.visibility = View.VISIBLE
+        btnDatosEstudiante.setOnClickListener {
+            mostrarContenedor(contenedorDatos)
+            val idUsuario = obtenerIdUsuario()
+            if (idUsuario != null) {
+                obtenerDatosEstudiante(idUsuario)
+            } else {
+                Toast.makeText(this, "ID de usuario no encontrado", Toast.LENGTH_SHORT).show()
             }
-            2 -> {
-                btnDatosEstudiante.backgroundTintList = ContextCompat.getColorStateList(this, R.color.black)
-                contenedorDatos.visibility = View.VISIBLE
-            }
-            3 -> {
-                btnEnviarMensaje.backgroundTintList = ContextCompat.getColorStateList(this, R.color.black)
-                contenedorEnviar.visibility = View.VISIBLE
-            }
+        }
+
+        btnEnviarMensaje.setOnClickListener {
+            mostrarContenedor(contenedorEnviar)
         }
     }
 
-    private fun resetButtons() {
-        // Poner todos los botones en gris
-        listOf(btnMsj, btnDatosEstudiante, btnEnviarMensaje).forEach {
-            it.backgroundTintList = ContextCompat.getColorStateList(this, R.color.gray)
-        }
+    private fun mostrarContenedor(contenedorMostrado: FrameLayout) {
+        contenedorMensajes.visibility = View.GONE
+        contenedorDatos.visibility = View.GONE
+        contenedorEnviar.visibility = View.GONE
+        contenedorMostrado.visibility = View.VISIBLE
+    }
 
-        // Ocultar todos los contenedores excepto el que se activará
-        listOf(contenedorMensajes, contenedorDatos, contenedorEnviar).forEach {
-            it.visibility = View.GONE
-        }
+    private fun obtenerIdUsuario(): String? {
+        val sharedPref: SharedPreferences = getSharedPreferences("usuario_prefs", MODE_PRIVATE)
+        return sharedPref.getString("id_usuario", null)
+    }
+
+    private fun obtenerDatosEstudiante(idUsuario: String) {
+        val url = "http://192.168.100.130/android_mysql_proyectExpotecnica/registro.php?id=$idUsuario"
+
+        val stringRequest = StringRequest(
+            Request.Method.GET, url,
+            { response ->
+                try {
+                    val json = JSONObject(response)
+
+                    findViewById<TextView>(R.id.NomText).text = "NOMBRE: ${json.getString("Nombre-de-Estudiantes")}"
+                    findViewById<TextView>(R.id.numTextcedu).text = "NUMERO DE CEDULA: ${json.getString("Numero-de-Cedula")}"
+                    findViewById<TextView>(R.id.numTeltext).text = "NUMERO TELEFONICO: ${json.getString("Numero-de-Telefono")}"
+                    findViewById<TextView>(R.id.seccText).text = "SECCIÓN: ${json.getString("Sesión")}"
+                    findViewById<TextView>(R.id.gradoText).text = "GRADO: ${json.getString("Grado")}"
+
+                } catch (e: JSONException) {
+                    Toast.makeText(this, "Error al procesar JSON: ${e.message}", Toast.LENGTH_LONG).show()
+                }
+            },
+            { error ->
+                Toast.makeText(this, "Error al obtener datos: ${error.message ?: "error desconocido"}", Toast.LENGTH_LONG).show()
+            }
+        )
+
+        Volley.newRequestQueue(this).add(stringRequest)
     }
 }

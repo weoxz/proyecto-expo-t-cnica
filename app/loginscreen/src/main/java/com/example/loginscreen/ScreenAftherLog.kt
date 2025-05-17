@@ -25,7 +25,10 @@ class ScreenAftherLog : AppCompatActivity() {
 
     private lateinit var NameComplete: EditText
     private lateinit var SeccionEstudiante: EditText
-
+    private lateinit var  NumCedula: EditText
+    private lateinit var  numTelefonico: EditText
+    private lateinit var  GradoEst: EditText
+    private lateinit var  button2: Button
     private val requestPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
     ) { isGranted ->
@@ -52,6 +55,10 @@ class ScreenAftherLog : AppCompatActivity() {
         setContentView(R.layout.activity_screen_afther_log)
         NameComplete = findViewById(R.id.NameComplete)
         SeccionEstudiante = findViewById(R.id.SeccionEstudiante)
+        NumCedula = findViewById(R.id.NumCedula)
+        numTelefonico = findViewById(R.id.numTelefonico)
+        GradoEst = findViewById(R.id.GradoEst)
+
 
         // Configuración del TextView existente
         val myTextView = findViewById<TextView>(R.id.textView)
@@ -62,7 +69,7 @@ class ScreenAftherLog : AppCompatActivity() {
             checkPermissionAndSelectImage()
         }
 
-        findViewById<Button>(R.id.NextScrenAfterData).setOnClickListener {
+        findViewById<Button>(R.id.button2).setOnClickListener {
             val intent = Intent(this, AftherEverything::class.java)
             startActivity(intent)
         }
@@ -104,6 +111,12 @@ class ScreenAftherLog : AppCompatActivity() {
             Request.Method.POST, url,
             Response.Listener<String> { response ->
                 Toast.makeText(this, "Datos ingresados: $response", Toast.LENGTH_SHORT).show()
+                // Guardar el ID del usuario en SharedPreferences
+                val sharedPref = getSharedPreferences("usuario_prefs", MODE_PRIVATE)
+                with(sharedPref.edit()) {
+                    putString("id_usuario", response.trim()) // trim() por si el servidor devuelve con espacios
+                    apply()
+                }
             },
             Response.ErrorListener { error ->
                 Toast.makeText(this, "Error: ${error.message ?: "Error desconocido"}", Toast.LENGTH_SHORT).show()
@@ -111,11 +124,16 @@ class ScreenAftherLog : AppCompatActivity() {
             override fun getParams(): MutableMap<String, String> {
                 return mutableMapOf(
                     "Nombre-de-Estudiantes" to NameComplete.text.toString(),
-                    "Sesión" to SeccionEstudiante.text.toString()
+                    "Sesión" to SeccionEstudiante.text.toString(),
+                    "Numero-de-Cedula" to NumCedula.text.toString(),
+                    "Numero-de-Telefono" to numTelefonico.text.toString(),
+                    "Grado" to GradoEst.text.toString()
                 )
             }
         }
-//Yo si le se a lo que es programar perrooo!!! posdata No cambie nad
+
+        //Yo si le sé a lo que es programar perrooo!!! posdata No cambie nada
         queue.add(resultadoPost)
     }
+
 }
