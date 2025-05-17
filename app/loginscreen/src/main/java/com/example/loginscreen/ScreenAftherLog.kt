@@ -1,139 +1,137 @@
 package com.example.loginscreen
 
 import android.Manifest
-import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
+import android.graphics.Matrix
 import android.os.Bundle
-import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.camera.core.*
+import androidx.camera.lifecycle.ProcessCameraProvider
+import androidx.camera.view.PreviewView
 import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.android.volley.Request
-import com.android.volley.Response
-import com.android.volley.toolbox.StringRequest
-import com.android.volley.toolbox.Volley
+import com.google.mediapipe.framework.PacketGetter
+import com.google.mediapipe.framework.AndroidPacketCreator
+import com.google.mediapipe.framework.Packet
+import com.google.mediapipe.framework.AndroidAssetUtil
+import com.google.mediapipe.framework.AppTextureFrame
+import com.google.mediapipe.framework.TextureFrame
+import com.google.mediapipe.framework.AndroidPacketCreator
+import com.google.mediapipe.components.FrameProcessor
+import com.google.mediapipe.components.PermissionHelper
+import com.google.mediapipe.glutil.EglManager
+import com.google.mediapipe.modules.face_detection.FaceDetection
+import com.google.mediapipe.modules.face_detection.FaceDetectionResult
+import com.google.mediapipe.modules.face_detection.FaceDetectionOptions
+import java.util.concurrent.ExecutorService
+import java.util.concurrent.Executors
 
 class ScreenAftherLog : AppCompatActivity() {
 
-    private lateinit var NameComplete: EditText
-    private lateinit var SeccionEstudiante: EditText
-    private lateinit var  NumCedula: EditText
-    private lateinit var  numTelefonico: EditText
-    private lateinit var  GradoEst: EditText
-    private lateinit var  button2: Button
+    private lateinit var cameraExecutor: ExecutorService
+    private lateinit var previewView: PreviewView
+
+    private lateinit var eglManager: EglManager
+    private lateinit var frameProcessor: FrameProcessor
+
     private val requestPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
     ) { isGranted ->
         if (isGranted) {
-            openImageChooser()
-        }
-    }
-
-    private val pickImageLauncher = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult()
-    ) { result ->
-        if (result.resultCode == RESULT_OK) {
-            result.data?.data?.let { uri ->
-                val imagePreview = findViewById<ImageView>(R.id.imagePreview)
-                imagePreview.setImageURI(uri)
-                imagePreview.visibility = View.VISIBLE
-            }
+            startCamera()
+        } else {
+            Toast.makeText(this, "Permiso de cámara denegado", Toast.LENGTH_SHORT).show()
         }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_screen_afther_log)
-        NameComplete = findViewById(R.id.NameComplete)
-        SeccionEstudiante = findViewById(R.id.SeccionEstudiante)
-        NumCedula = findViewById(R.id.NumCedula)
-        numTelefonico = findViewById(R.id.numTelefonico)
-        GradoEst = findViewById(R.id.GradoEst)
 
+        previewView = findViewById(R.id.cameraPreview)
+        cameraExecutor = Executors.newSingleThreadExecutor()
 
-        // Configuración del TextView existente
-        val myTextView = findViewById<TextView>(R.id.textView)
-        myTextView.background = ContextCompat.getDrawable(this, R.drawable.rounded_box)
+        // Inicializa MediaPipe asset manager (carga los archivos necesarios)
+        AndroidAssetUtil.initializeNativeAssetManager(this)
 
-        // Botón para seleccionar imagen
-        findViewById<Button>(R.id.btnSelectImage).setOnClickListener {
-            checkPermissionAndSelectImage()
+        eglManager = EglManager(null)
+        eglManager.createContext()
+
+        // Inicializa FrameProcessor con el grafo de Face Detection
+        frameProcessor = FrameProcessor(
+            this,
+            eglManager.nativeContext,
+            "face_detection_mobile_gpu.binarypb",
+            "input_video",
+            "output_video"
+        )
+
+        frameProcessor.videoSurfaceOutput.setSurface(previewView.surfaceProvider.surface)
+
+        frameProcessor.addPacketCallback("detections") { packet ->
+            val faceDetections = PacketGetter.getProtoVector(packet, FaceDetectionResult.parser())
+            runOnUiThread {
+                if (faceDetections.isNotEmpty()) {
+                    Toast.makeText(this, "Cara detectada!", Toast.LENGTH_SHORT).show()
+                    // Aquí puedes agregar tu lógica para la verificación facial
+                }
+            }
         }
 
-        findViewById<Button>(R.id.button2).setOnClickListener {
-            val intent = Intent(this, AftherEverything::class.java)
-            startActivity(intent)
-        }
-
-        // Manejo de insets
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+        checkCameraPermission()
     }
 
-    private fun checkPermissionAndSelectImage() {
+    private fun checkCameraPermission() {
         when {
-            ContextCompat.checkSelfPermission(
-                this,
-                Manifest.permission.READ_EXTERNAL_STORAGE
-            ) == PackageManager.PERMISSION_GRANTED -> {
-                openImageChooser()
+            ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED -> {
+                startCamera()
             }
             else -> {
-                requestPermissionLauncher.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
+                requestPermissionLauncher.launch(Manifest.permission.CAMERA)
             }
         }
     }
 
-    private fun openImageChooser() {
-        val intent = Intent(Intent.ACTION_PICK).apply {
-            type = "image/*"
-        }
-        pickImageLauncher.launch(intent)
-    }
+    private fun startCamera() {
+        val cameraProviderFuture = ProcessCameraProvider.getInstance(this)
 
-    fun clickButtonUpdateDB(view: View) {
-        val url = "http://192.168.100.130/android_mysql_proyectExpotecnica/insertar_Estudiantes.php"
-        val queue = Volley.newRequestQueue(this)
+        cameraProviderFuture.addListener({
+            val cameraProvider = cameraProviderFuture.get()
 
-        val resultadoPost = object : StringRequest(
-            Request.Method.POST, url,
-            Response.Listener<String> { response ->
-                Toast.makeText(this, "Datos ingresados: $response", Toast.LENGTH_SHORT).show()
-                // Guardar el ID del usuario en SharedPreferences
-                val sharedPref = getSharedPreferences("usuario_prefs", MODE_PRIVATE)
-                with(sharedPref.edit()) {
-                    putString("id_usuario", response.trim()) // trim() por si el servidor devuelve con espacios
-                    apply()
+            val preview = Preview.Builder().build()
+                .also {
+                    it.setSurfaceProvider(previewView.surfaceProvider)
                 }
-            },
-            Response.ErrorListener { error ->
-                Toast.makeText(this, "Error: ${error.message ?: "Error desconocido"}", Toast.LENGTH_SHORT).show()
-            }) {
-            override fun getParams(): MutableMap<String, String> {
-                return mutableMapOf(
-                    "Nombre-de-Estudiantes" to NameComplete.text.toString(),
-                    "Sesión" to SeccionEstudiante.text.toString(),
-                    "Numero-de-Cedula" to NumCedula.text.toString(),
-                    "Numero-de-Telefono" to numTelefonico.text.toString(),
-                    "Grado" to GradoEst.text.toString()
-                )
-            }
-        }
 
-        //Yo si le sé a lo que es programar perrooo!!! posdata No cambie nada
-        queue.add(resultadoPost)
+            val imageAnalysis = ImageAnalysis.Builder()
+                .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
+                .build()
+
+            imageAnalysis.setAnalyzer(cameraExecutor) { imageProxy ->
+                val rotationDegrees = imageProxy.imageInfo.rotationDegrees
+                // Envía el frame al FrameProcessor para que MediaPipe lo analice
+                frameProcessor.onNewFrame(imageProxy.image!!, rotationDegrees)
+                imageProxy.close()
+            }
+
+            val cameraSelector = CameraSelector.DEFAULT_FRONT_CAMERA
+
+            try {
+                cameraProvider.unbindAll()
+                cameraProvider.bindToLifecycle(this, cameraSelector, preview, imageAnalysis)
+            } catch (exc: Exception) {
+                Toast.makeText(this, "Error al iniciar cámara: ${exc.message}", Toast.LENGTH_SHORT).show()
+            }
+        }, ContextCompat.getMainExecutor(this))
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        cameraExecutor.shutdown()
+        frameProcessor.close()
+        eglManager.release()
+    }
 }
+

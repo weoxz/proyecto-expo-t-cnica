@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- Permisos para internet y selección de imágenes -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+
 
     <application
         android:allowBackup="true"
@@ -14,35 +21,37 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CuadernoDeComunicaciones"
         android:usesCleartextTraffic="true">
+
         <activity
             android:name=".AftherEverything"
             android:exported="false" />
+
         <!-- Para compatibilidad con versiones anteriores -->
         <activity
             android:name=".ScreenAftherLog"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" /> <!-- Mejora para teclado -->
+
         <activity
             android:name=".SecondLoginScreen"
             android:exported="false" />
-        <activity
-            android:name=".SecondScreen"
-            android:exported="false" />
+
+
         <activity
             android:name=".loginScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- Proveedor de archivos para compartir imágenes -->
+        </activity>
+
+        <!-- Proveedor de archivos para compartir imágenes -->
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
-            r
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
