@@ -6,70 +6,67 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="loginScreen"
-    android:background="@drawable/loginss"
+    android:background="@drawable/pantallas"
     >
 
 
     <EditText
         android:id="@+id/txtCedula"
-        android:layout_width="194dp"
-        android:layout_height="49dp"
-        android:text="Usuario."
-        android:textColor="@color/black"
+        android:layout_width="270dp"
+        android:layout_height="51dp"
+        android:textColor="@color/white"
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintHorizontal_bias="0.475"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.414" />
+        app:layout_constraintVertical_bias="0.366" />
 
     <EditText
         android:id="@+id/txtCodigo"
-        android:layout_width="197dp"
-        android:layout_height="43dp"
+        android:layout_width="276dp"
+        android:layout_height="48dp"
         android:onClick="clickButtoningresar"
-        android:textColor="@color/black"
-        android:text="Contraseña."
+        android:textColor="@color/white"
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.482" />
+        app:layout_constraintVertical_bias="0.549" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button"
-        android:layout_width="146dp"
-        android:layout_height="32dp"
-        android:backgroundTint="#27A7A6"
+        android:layout_width="278dp"
+        android:layout_height="54dp"
+        android:backgroundTint="#17181c"
         android:onClick="clickButtonIngresar"
         android:text="ingresar"
-        android:textColor="@color/black"
-        android:textSize="10dp"
+        android:textColor="@color/white"
+        android:textSize="25dp"
         app:cornerRadius="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.552" />
+        app:layout_constraintVertical_bias="0.67" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/NextScreenButton"
-        android:layout_width="180dp"
-        android:layout_height="57dp"
-        android:backgroundTint="#27A7A6"
+        android:layout_width="198dp"
+        android:layout_height="47dp"
+        android:backgroundTint="#17181c"
         android:onClick="clickButtonIngresar"
-        android:text="Aun no tienes cuenta? Toca aqui."
-        android:textColor="@color/black"
+        android:text="Aun no tengo cuenta"
         app:cornerRadius="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.528"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.648" />
+        app:layout_constraintVertical_bias="0.779" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

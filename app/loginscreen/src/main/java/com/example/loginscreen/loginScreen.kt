@@ -28,9 +28,9 @@ class loginScreen : AppCompatActivity() {
         txtCedula = findViewById(R.id.txtCedula)
         txtCodigo = findViewById(R.id.txtCodigo)
         nextScreenButton = findViewById(R.id.NextScreenButton) // Inicializa MaterialButton
-        // Dentro del método onCreate(), añade esto:
+
         findViewById<Button>(R.id.button).setOnClickListener {
-            startActivity(Intent(this, ScreenAftherLog::class.java))
+            startActivity(Intent(this, AftherEverything::class.java))
         }
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())

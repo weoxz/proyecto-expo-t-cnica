@@ -1,14 +1,16 @@
 package com.example.loginscreen
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.EditText
 import android.widget.RadioGroup
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.button.MaterialButton
-import android.widget.EditText
 
 class SecondLoginScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,50 +18,54 @@ class SecondLoginScreen : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_second_login_screen)
 
-        // Configuración del EdgeToEdge (como tenías originalmente)
+        // Aplicar padding para barras del sistema
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        // Implementación de la selección de rol
+        // Referencias a vistas
         val radioGroupRol = findViewById<RadioGroup>(R.id.radioGroupRol)
-        val btnNext = findViewById<MaterialButton>(R.id.NextScreenUserr)
         val txtCedula = findViewById<EditText>(R.id.txtCedula)
         val txtCodigo = findViewById<EditText>(R.id.txtCodigo)
         val txtSeccion = findViewById<EditText>(R.id.TxtNombre)
+        val btnNext = findViewById<MaterialButton>(R.id.NextScreenUserr)
 
         btnNext.setOnClickListener {
-            // Obtener el rol seleccionado
-            val selectedRole = when (radioGroupRol.checkedRadioButtonId) {
-                R.id.radioEncargado -> "Encargado"
-                R.id.radioEstudiante -> "Estudiante"
-                else -> "No seleccionado"
-            }
+            val usuario = txtCedula.text.toString().trim()
+            val contrasena = txtCodigo.text.toString().trim()
+            val seccion = txtSeccion.text.toString().trim()
 
-            // Obtener los demás valores
-            val usuario = txtCedula.text.toString()
-            val contrasena = txtCodigo.text.toString()
-            val seccion = txtSeccion.text.toString()
-
-            // Validación básica de campos
+            // Validar campos vacíos
             if (usuario.isEmpty() || contrasena.isEmpty() || seccion.isEmpty()) {
-                Log.e("LoginError", "Todos los campos son obligatorios")
-                // Aquí podrías mostrar un Toast o Snackbar al usuario
+                Toast.makeText(this, "Todos los campos son obligatorios", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            // Log de depuración (puedes eliminarlo en producción)
+            // Obtener rol seleccionado
+            val selectedRole = when (radioGroupRol.checkedRadioButtonId) {
+                R.id.radioEncargado -> "Encargado"
+                R.id.radioEstudiante -> "Estudiante"
+                else -> null
+            }
+
+            if (selectedRole == null) {
+                Toast.makeText(this, "Por favor selecciona un rol", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            // Imprimir datos para depuración
             Log.d("LoginData", """
                 Usuario: $usuario
-                Rol: $selectedRole
+                Contraseña: $contrasena
                 Sección: $seccion
+                Rol: $selectedRole
             """.trimIndent())
 
-            // Aquí iría la lógica para procesar el login
-            // Por ejemplo, navegar a otra actividad o hacer una petición HTTP
-            // startActivity(Intent(this, NextActivity::class.java))
+            // Ir a la siguiente pantalla
+            val intent = Intent(this, ScreenAftherLog::class.java)
+            startActivity(intent)
         }
     }
 }

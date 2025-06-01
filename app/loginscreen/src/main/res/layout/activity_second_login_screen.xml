@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SecondLoginScreen"
-    android:background="@drawable/secondloginnn">
+    android:background="@drawable/next"
+    android:elevation="3dp">
 
     <!-- Campo de Usuario -->
 
@@ -15,89 +16,94 @@
     <!-- Campo de Sección -->
 
     <!-- Selección de Rol -->
+
     <EditText
         android:id="@+id/txtCedula"
-        android:layout_width="194dp"
-        android:layout_height="49dp"
-        android:text="Usuario"
-        android:textColor="@color/black"
+        android:layout_width="261dp"
+        android:layout_height="47dp"
+
+        android:textColor="@color/white"
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.58"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.409" />
+        app:layout_constraintVertical_bias="0.286" />
+
+
+    <!-- Botón de Confirmación -->
 
     <EditText
         android:id="@+id/txtCodigo"
-        android:layout_width="197dp"
-        android:layout_height="43dp"
-        android:text="Contraseña"
-        android:textColor="@color/black"
+        android:layout_width="260dp"
+        android:layout_height="45dp"
+        android:textColor="@color/white"
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintHorizontal_bias="0.556"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.466" />
+        app:layout_constraintVertical_bias="0.44" />
+
 
     <EditText
         android:id="@+id/TxtNombre"
-        android:layout_width="197dp"
-        android:layout_height="43dp"
-        android:text="Sección"
-        android:textColor="@color/black"
+        android:layout_width="257dp"
+        android:layout_height="47dp"
+        android:textColor="@color/white"
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintHorizontal_bias="0.564"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.518" />
+        app:layout_constraintVertical_bias="0.595" />
 
-    <RadioGroup
-        android:id="@+id/radioGroupRol"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.6">
-
-        <RadioButton
-            android:id="@+id/radioEncargado"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Encargado"
-            android:textColor="@color/black"
-            android:checked="true" />
-
-        <RadioButton
-            android:id="@+id/radioEstudiante"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Estudiante"
-            android:textColor="@color/black" />
-    </RadioGroup>
-
-    <!-- Botón de Confirmación -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/NextScreenUserr"
-        android:layout_width="180dp"
-        android:layout_height="57dp"
-        android:backgroundTint="#27A7A6"
+        android:layout_width="271dp"
+        android:layout_height="87dp"
+        android:backgroundTint="#17181c"
         android:text="Todo listo? toca aqui"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         app:cornerRadius="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.553"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.679" />
+        app:layout_constraintVertical_bias="0.82" />
+
+    <RadioGroup
+            android:id="@+id/radioGroupRol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.203"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.687">
+
+            <RadioButton
+                android:id="@+id/radioEncargado"
+                android:layout_width="67dp"
+                android:layout_height="47dp"
+                android:checked="true"
+                android:textColor="@color/black"
+                android:layout_marginEnd="40dp" />  <!-- separación al siguiente -->
+
+            <RadioButton
+                android:id="@+id/radioEstudiante"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:layout_marginStart="60dp" />
+        </RadioGroup>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

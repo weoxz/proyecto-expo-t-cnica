@@ -98,10 +98,7 @@ class ScreenAftherLog : AppCompatActivity() {
         val myTextView = findViewById<TextView>(R.id.textView)
         myTextView.background = ContextCompat.getDrawable(this, R.drawable.rounded_box)
 
-        // Botón seleccionar imagen desde galería
-        findViewById<Button>(R.id.btnSelectImage).setOnClickListener {
-            checkStoragePermissionAndSelectImage()
-        }
+
 
         // Botón para iniciar cámara y verificar
         findViewById<Button>(R.id.btn_verificarr).setOnClickListener {
