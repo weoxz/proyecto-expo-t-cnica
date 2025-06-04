@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="loginScreen"
+    tools:context=".LoginScreen"
     android:background="@drawable/pantallas"
     >
 
@@ -27,7 +27,6 @@
         android:id="@+id/txtCodigo"
         android:layout_width="276dp"
         android:layout_height="48dp"
-        android:onClick="clickButtoningresar"
         android:textColor="@color/white"
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -42,7 +41,6 @@
         android:layout_width="278dp"
         android:layout_height="54dp"
         android:backgroundTint="#17181c"
-        android:onClick="clickButtonIngresar"
         android:text="ingresar"
         android:textColor="@color/white"
         android:textSize="25dp"
@@ -59,7 +57,6 @@
         android:layout_width="198dp"
         android:layout_height="47dp"
         android:backgroundTint="#17181c"
-        android:onClick="clickButtonIngresar"
         android:text="Aun no tengo cuenta"
         app:cornerRadius="0dp"
         app:layout_constraintBottom_toBottomOf="parent"

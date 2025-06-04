@@ -5,8 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SecondLoginScreen"
-    android:background="@drawable/next"
+    tools:context=".SecondSignScreen"
+    android:background="@drawable/next2"
     android:elevation="3dp">
 
     <!-- Campo de Usuario -->
@@ -18,7 +18,7 @@
     <!-- Selección de Rol -->
 
     <EditText
-        android:id="@+id/txtCedula"
+        android:id="@+id/txtUsuario"
         android:layout_width="261dp"
         android:layout_height="47dp"
 
@@ -35,7 +35,7 @@
     <!-- Botón de Confirmación -->
 
     <EditText
-        android:id="@+id/txtCodigo"
+        android:id="@+id/txtContraseña"
         android:layout_width="260dp"
         android:layout_height="45dp"
         android:textColor="@color/white"
@@ -49,7 +49,7 @@
 
 
     <EditText
-        android:id="@+id/TxtNombre"
+        android:id="@+id/txtCodigoEntra"
         android:layout_width="257dp"
         android:layout_height="47dp"
         android:textColor="@color/white"
@@ -76,33 +76,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.82" />
 
-    <RadioGroup
-            android:id="@+id/radioGroupRol"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.203"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.687">
 
-            <RadioButton
-                android:id="@+id/radioEncargado"
-                android:layout_width="67dp"
-                android:layout_height="47dp"
-                android:checked="true"
-                android:textColor="@color/black"
-                android:layout_marginEnd="40dp" />  <!-- separación al siguiente -->
-
-            <RadioButton
-                android:id="@+id/radioEstudiante"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:layout_marginStart="60dp" />
-        </RadioGroup>
 
 
 

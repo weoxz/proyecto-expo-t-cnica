@@ -33,12 +33,12 @@
             android:windowSoftInputMode="adjustResize" /> <!-- Mejora para teclado -->
 
         <activity
-            android:name=".SecondLoginScreen"
+            android:name=".SecondSignScreen"
             android:exported="false" />
 
 
         <activity
-            android:name=".loginScreen"
+            android:name=".LoginScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
