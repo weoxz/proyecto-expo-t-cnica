@@ -42,7 +42,7 @@ class LoginScreen : AppCompatActivity() {
         }
 
         btnIrRegistro.setOnClickListener {
-            startActivity(Intent(this, SecondSignScreen::class.java))
+            startActivity(Intent(this, ProfesorActividad::class.java))
         }
     }
 
