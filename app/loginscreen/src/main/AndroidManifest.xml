@@ -20,6 +20,9 @@
         android:theme="@style/Theme.CuadernoDeComunicaciones"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".AdminActivity"
+            android:exported="false" />
+        <activity
             android:name=".ProfesorActividad"
             android:exported="false" />
         <activity
