@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/studentimagennn"
+    tools:context=".AdminActivity">
+    <Button
+        android:id="@+id/btnDatosEstudiante"
+        android:layout_width="125dp"
+        android:layout_height="53dp"
+        android:visibility="invisible"
+        android:backgroundTint="@color/gray"
+        android:text="Datos Profesor"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.069" />
+
+    <TextView
+        android:id="@+id/tvDatosProfesor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre:\nCédula:\nEnseñanzas:"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.055"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.887" />
+
+
+
+    <!-- ScrollView (opcional) -->
+    <ScrollView
+        android:layout_width="411dp"
+        android:layout_height="0dp"
+        android:fillViewport="true" />
+
+    <!-- Botón Secciones a Cargo -->
+    <Button
+        android:id="@+id/btnProfesAucentadosAvizo"
+        android:layout_width="184dp"
+        android:layout_height="39dp"
+        android:backgroundTint="@color/gray"
+        android:text="Profes faltantes"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.881"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.325" />
+
+    <!-- Botón Buscar Estudiante -->
+    <Button
+        android:id="@+id/btnBuscarEstudiante"
+        android:layout_width="184dp"
+        android:layout_height="39dp"
+        android:backgroundTint="@color/gray"
+        android:text="Buscar estudiante"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.325" />
+
+    <!-- Botón Chat Estudiantes -->
+    <Button
+        android:id="@+id/btnMensajesPorAprovar"
+        android:layout_width="184dp"
+        android:layout_height="39dp"
+        android:backgroundTint="@color/gray"
+        android:text="Aprovar mensajes"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.248" />
+
+    <!-- Botón Chats Padres -->
+    <Button
+        android:id="@+id/btnEnviarPadre"
+        android:layout_width="184dp"
+        android:layout_height="39dp"
+        android:backgroundTint="@color/gray"
+        android:text="Chats padres"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.881"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.248" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
