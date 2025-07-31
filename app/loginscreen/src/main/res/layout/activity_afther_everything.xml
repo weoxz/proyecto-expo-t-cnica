@@ -10,6 +10,7 @@
     android:background="@drawable/loginscreeen">
 
     <!-- Botón Mensajes (posición original) -->
+
     <Button
         android:id="@+id/btnMsj"
         android:layout_width="115dp"
@@ -57,23 +58,37 @@
     <!-- Contenedores de contenido (ocultos inicialmente) -->
     <FrameLayout
         android:id="@+id/contenedorMensajes"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:visibility="gone"
-
+        android:layout_width="416dp"
+        android:layout_height="626dp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnEnviarMensaje">
 
-        <!-- Contenido de Mensajes Recibidos -->
-        <TextView
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:text="MESSAGES RECEIVED DATA\nINCOMING MESSAGES"
-            android:textSize="18sp" />
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerMensajes"
+                    android:layout_width="match_parent"
+                    android:layout_height="534dp"
+                    android:padding="16dp"
+                    android:scrollbars="vertical">
+
+                </androidx.recyclerview.widget.RecyclerView>
+
+            </LinearLayout>
+        </FrameLayout>
 
     </FrameLayout>
+
 
     <FrameLayout
         android:id="@+id/contenedorDatos"
@@ -137,8 +152,8 @@
         android:layout_height="0dp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <!-- Contenido de Enviar Mensaje -->
         <LinearLayout
@@ -151,17 +166,32 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="SEND MESSAGES"
-                android:textSize="18sp"/>
+                android:textSize="18sp" />
 
             <EditText
+                android:id="@+id/remitnete"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Escribe tu mensaje"/>
+                android:hint="Ingrese el remitente" />
+
+            <EditText
+                android:id="@+id/destinatario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ingrese el destinatario" />
+
+            <EditText
+                android:id="@+id/mensaje"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Escribe tu mensaje" />
 
             <Button
+                android:id="@+id/send_mensaje"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="SEND"/>
+                android:onClick="ClickSendMesajes"
+                android:text="SEND" />
 
         </LinearLayout>
     </FrameLayout>

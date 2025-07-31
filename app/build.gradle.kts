@@ -60,4 +60,7 @@ dependencies {
 
     // Kotlin stdlib
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.9.10")
+
+    implementation("androidx.recyclerview:recyclerview:1.3.0")
+
 }

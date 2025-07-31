@@ -218,11 +218,11 @@ class ScreenAftherLog : AppCompatActivity() {
             }) {
             override fun getParams(): MutableMap<String, String> {
                 return mutableMapOf(
-                    "Nombre-de-Estudiantes" to nameComplete.text.toString(),
-                    "Sesión" to seccionEstudiante.text.toString(),
-                    "Numero-de-Cedula" to numCedula.text.toString(),
-                    "Numero-de-Telefono" to numTelefonico.text.toString(),
-                    "Grado" to gradoEst.text.toString()
+                    "nombre" to nameComplete.text.toString(),
+                    "seccion" to seccionEstudiante.text.toString(),
+                    "cedula" to numCedula.text.toString(),
+                    "telefono" to numTelefonico.text.toString(),
+                    "grado" to gradoEst.text.toString()
                 )
             }
         }

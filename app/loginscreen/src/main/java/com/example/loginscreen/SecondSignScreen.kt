@@ -38,8 +38,6 @@ class SecondSignScreen : AppCompatActivity() {
         requestQueue = Volley.newRequestQueue(this)
 
         btnNext.setOnClickListener {
-            val intent = Intent(this, ScreenAftherLog::class.java)
-            startActivity(intent)
             val usuario = txtUsuario.text.toString().trim()
             val contraseña = txtContraseña.text.toString().trim()
             val clave = txtClave.text.toString().trim()
@@ -59,6 +57,20 @@ class SecondSignScreen : AppCompatActivity() {
                         if (json.getBoolean("success")) {
                             val rol = json.optString("rol", "desconocido")
                             Toast.makeText(this, "Usuario registrado como $rol", Toast.LENGTH_LONG).show()
+
+                            val sharedPref = getSharedPreferences("usuario_prefs", MODE_PRIVATE)
+                            with(sharedPref.edit()) {
+                                putString("nombre_usuario", usuario)
+                                apply()
+                            }
+
+                            when (rol) {
+                                "estudiante" -> startActivity(Intent(this, ProfileOfStudents::class.java))
+                                "padre" -> startActivity(Intent(this, AftherEverything::class.java))
+                                "docente" -> startActivity(Intent(this, ProfesorActividad::class.java))
+                                // Agrega otros roles si tienes
+                                else -> Toast.makeText(this, "Rol desconocido: $rol", Toast.LENGTH_SHORT).show()
+                            }
 
                             // Aquí puedes guardar el rol o enviarlo a otra pantalla
                             // Por ejemplo, podrías usar SharedPreferences:

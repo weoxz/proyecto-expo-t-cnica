@@ -42,10 +42,9 @@ class LoginScreen : AppCompatActivity() {
         }
 
         btnIrRegistro.setOnClickListener {
-            startActivity(Intent(this, ProfesorActividad::class.java))
+            startActivity(Intent(this, SecondSignScreen::class.java))
         }
     }
-
     private fun loginUsuario(usuario: String, password: String) {
         val stringRequest = object : StringRequest(
             Method.POST, url,
@@ -54,13 +53,26 @@ class LoginScreen : AppCompatActivity() {
                     val json = JSONObject(response)
                     if (json.getBoolean("success")) {
                         val rol = json.getString("rol")
+                        val idUsuario = json.getString("id")
+                        val nombreUsuario = json.getString("nombre")
+
+                        // Guardar en SharedPreferences
+                        val sharedPref = getSharedPreferences("usuario_prefs", MODE_PRIVATE)
+                        with(sharedPref.edit()) {
+                            putString("rol_usuario", rol)
+                            putString("id_usuario", idUsuario)
+                            putString("nombre_usuario", nombreUsuario)
+                            apply()
+                        }
+
                         when (rol) {
-                            "estudiante" -> startActivity(Intent(this, AftherEverything::class.java))
-                            //"padre456" -> startActivity(Intent(this, PadreActivity::class.java))
-                            //"docente789" -> startActivity(Intent(this, DocenteActivity::class.java))
-                            //"admin000" -> startActivity(Intent(this, AdminActivity::class.java))
+                            "estudiante" -> startActivity(Intent(this, ProfileOfStudents::class.java))
+                            "padre" -> startActivity(Intent(this, AftherEverything::class.java))
+                            "docente" -> startActivity(Intent(this, ProfesorActividad::class.java))
+                            // Agrega otros roles si tienes
                             else -> Toast.makeText(this, "Rol desconocido: $rol", Toast.LENGTH_SHORT).show()
                         }
+                        finish() // Opcional: cerrar esta activity para no volver atrás
                     } else {
                         Toast.makeText(this, json.getString("error"), Toast.LENGTH_SHORT).show()
                     }
@@ -79,4 +91,6 @@ class LoginScreen : AppCompatActivity() {
 
         Volley.newRequestQueue(this).add(stringRequest)
     }
+
+
 }

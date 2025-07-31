@@ -8,104 +8,114 @@
     android:background="@drawable/studentimagennn"
     tools:context=".ProfesorActividad">
 
-    <!-- Botón Datos Profesor -->
-
-    <!-- Texto de datos del profesor, oculto por defecto -->
-
     <Button
-        android:id="@+id/btnDatosEstudiante"
-        android:layout_width="125dp"
+        android:id="@+id/btnMsj"
+        android:layout_width="115dp"
         android:layout_height="53dp"
-        android:backgroundTint="@color/gray"
-        android:text="Datos Profesor"
+        android:backgroundTint="@color/black"
+        android:text="Mensajes"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.069" />
+        app:layout_constraintVertical_bias="0.044" />
 
-    <TextView
-        android:id="@+id/tvDatosProfesor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nombre:\nCédula:\nEnseñanzas:"
-        android:textColor="@android:color/white"
-        android:textSize="20sp"
+    <Button
+        android:id="@+id/btnEnviarMensaje"
+        android:layout_width="130dp"
+        android:layout_height="54dp"
+        android:backgroundTint="@color/gray"
+        android:text="Enviar Mensaje"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.044" />
+
+    <FrameLayout
+        android:id="@+id/contenedorMensajes"
+        android:layout_width="416dp"
+        android:layout_height="626dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnEnviarMensaje">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerMensajes"
+                    android:layout_width="match_parent"
+                    android:layout_height="534dp"
+                    android:padding="16dp"
+                    android:scrollbars="vertical">
+
+                </androidx.recyclerview.widget.RecyclerView>
+
+            </LinearLayout>
+        </FrameLayout>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/contenedorEnviar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.055"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.887" />
+        app:layout_constraintStart_toStartOf="parent">
 
+        <!-- Contenido de Enviar Mensaje -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="SEND MESSAGES"
+                android:textSize="18sp" />
 
-    <!-- ScrollView (opcional) -->
-    <ScrollView
-        android:layout_width="411dp"
-        android:layout_height="0dp"
-        android:fillViewport="true" />
+            <EditText
+                android:id="@+id/remitnete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ingrese el remitente" />
 
-    <!-- Botón Secciones a Cargo -->
-    <Button
-        android:id="@+id/btnSeccionesACargo"
-        android:layout_width="184dp"
-        android:layout_height="39dp"
-        android:backgroundTint="@color/gray"
-        android:text="Secciones a cargo"
-        android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.881"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.325" />
+            <EditText
+                android:id="@+id/destinatario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ingrese el destinatario" />
 
-    <!-- Botón Buscar Estudiante -->
-    <Button
-        android:id="@+id/btnBuscarEstudiante"
-        android:layout_width="184dp"
-        android:layout_height="39dp"
-        android:backgroundTint="@color/gray"
-        android:text="Buscar estudiante"
-        android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.325" />
+            <EditText
+                android:id="@+id/mensaje"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Escribe tu mensaje" />
 
-    <!-- Botón Chat Estudiantes -->
-    <Button
-        android:id="@+id/btnEnviarHijo"
-        android:layout_width="184dp"
-        android:layout_height="39dp"
-        android:backgroundTint="@color/gray"
-        android:text="Chat estudiantes"
-        android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.248" />
+            <Button
+                android:id="@+id/send_mensaje"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="ClickSendMesajes"
+                android:text="SEND" />
 
-    <!-- Botón Chats Padres -->
-    <Button
-        android:id="@+id/btnEnviarPadre"
-        android:layout_width="184dp"
-        android:layout_height="39dp"
-        android:backgroundTint="@color/gray"
-        android:text="Chats padres"
-        android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.881"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.248" />
-
+        </LinearLayout>
+    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
