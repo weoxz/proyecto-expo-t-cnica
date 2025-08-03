@@ -7,101 +7,161 @@
     android:layout_height="match_parent"
     android:background="@drawable/studentimagennn"
     tools:context=".AdminActivity">
+
     <Button
-        android:id="@+id/btnDatosEstudiante"
-        android:layout_width="125dp"
+        android:id="@+id/btnMsj"
+        android:layout_width="115dp"
         android:layout_height="53dp"
-        android:visibility="invisible"
-        android:backgroundTint="@color/gray"
-        android:text="Datos Profesor"
+        android:backgroundTint="@color/black"
+        android:text="Mensajes"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.069" />
+        app:layout_constraintVertical_bias="0.044" />
 
-    <TextView
-        android:id="@+id/tvDatosProfesor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nombre:\nCédula:\nEnseñanzas:"
-        android:textColor="@android:color/white"
-        android:textSize="20sp"
+    <Button
+        android:id="@+id/btnEnviarMensaje"
+        android:layout_width="130dp"
+        android:layout_height="54dp"
+        android:backgroundTint="@color/gray"
+        android:text="Enviar Mensaje"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.044" />
+
+    <FrameLayout
+        android:id="@+id/contenedorMensajes"
+        android:layout_width="416dp"
+        android:layout_height="626dp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.055"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.887" />
+        app:layout_constraintTop_toBottomOf="@+id/btnEnviarMensaje">
 
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-    <!-- ScrollView (opcional) -->
-    <ScrollView
-        android:layout_width="411dp"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerMensajes"
+                    android:layout_width="match_parent"
+                    android:layout_height="534dp"
+                    android:padding="16dp"
+                    android:scrollbars="vertical">
+
+                </androidx.recyclerview.widget.RecyclerView>
+
+            </LinearLayout>
+        </FrameLayout>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/contenedorEnviar"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:fillViewport="true" />
-
-    <!-- Botón Secciones a Cargo -->
-    <Button
-        android:id="@+id/btnProfesAucentadosAvizo"
-        android:layout_width="184dp"
-        android:layout_height="39dp"
-        android:backgroundTint="@color/gray"
-        android:text="Profes faltantes"
-        android:textColor="@android:color/white"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.881"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.325" />
+        app:layout_constraintStart_toStartOf="parent">
 
-    <!-- Botón Buscar Estudiante -->
-    <Button
-        android:id="@+id/btnBuscarEstudiante"
-        android:layout_width="184dp"
-        android:layout_height="39dp"
-        android:backgroundTint="@color/gray"
-        android:text="Buscar estudiante"
-        android:textColor="@android:color/white"
+        <!-- Contenido de Enviar Mensaje -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="SEND MESSAGES"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/remitnete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ingrese el remitente" />
+
+            <EditText
+                android:id="@+id/destinatario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ingrese el destinatario" />
+
+            <EditText
+                android:id="@+id/mensaje"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Escribe tu mensaje" />
+
+            <Button
+                android:id="@+id/send_mensaje"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="ClickSendMesajes"
+                android:text="SEND" />
+
+        </LinearLayout>
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/aprobar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.325" />
+        tools:ignore="MissingConstraints">
 
-    <!-- Botón Chat Estudiantes -->
-    <Button
-        android:id="@+id/btnMensajesPorAprovar"
-        android:layout_width="184dp"
-        android:layout_height="39dp"
-        android:backgroundTint="@color/gray"
-        android:text="Aprovar mensajes"
-        android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.248" />
+        <TextView
+            android:id="@+id/txtRemitente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold" />
 
-    <!-- Botón Chats Padres -->
-    <Button
-        android:id="@+id/btnEnviarPadre"
-        android:layout_width="184dp"
-        android:layout_height="39dp"
-        android:backgroundTint="@color/gray"
-        android:text="Chats padres"
-        android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.881"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.248" />
+        <TextView
+            android:id="@+id/txtMensaje"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnAprobar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Aprobar" />
+
+            <Button
+                android:id="@+id/btnRechazar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Rechazar" />
+        </LinearLayout>
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

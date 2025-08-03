@@ -68,6 +68,7 @@ class SecondSignScreen : AppCompatActivity() {
                                 "estudiante" -> startActivity(Intent(this, ProfileOfStudents::class.java))
                                 "padre" -> startActivity(Intent(this, AftherEverything::class.java))
                                 "docente" -> startActivity(Intent(this, ProfesorActividad::class.java))
+                                "admin" -> startActivity(Intent(this, AdminActivity::class.java))
                                 // Agrega otros roles si tienes
                                 else -> Toast.makeText(this, "Rol desconocido: $rol", Toast.LENGTH_SHORT).show()
                             }

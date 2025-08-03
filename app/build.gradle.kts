@@ -48,7 +48,7 @@ dependencies {
     implementation("com.android.volley:volley:1.2.1")
 
     // MediaPipe (Reconocimiento facial)
-    implementation("com.google.mediapipe:facemesh:0.9.1")
+
 
     implementation("com.google.mediapipe:tasks-vision:0.10.20")
 
