@@ -24,7 +24,9 @@ class MensajePendienteAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val vista = LayoutInflater.from(parent.context).inflate(R.layout.activity_admin, parent, false)
+        // Inflamos el layout del ítem, NO el de la actividad
+        val vista = LayoutInflater.from(parent.context)
+            .inflate(R.layout.activity_validar_mensajes, parent, false)
         return ViewHolder(vista)
     }
 
