@@ -45,7 +45,7 @@ class AdminActivity : AppCompatActivity() {
 
         contenedorMensajes = findViewById(R.id.contenedorMensajes)
         contenedorEnviar = findViewById(R.id.contenedorEnviar)
-        linearLayoutAprobar = findViewById(R.id.aprobar)
+
 
         val btnMsj = findViewById<Button>(R.id.btnMsj)
         val btnEnviarMensaje = findViewById<Button>(R.id.btnEnviarMensaje)
@@ -64,7 +64,7 @@ class AdminActivity : AppCompatActivity() {
         btnMsj.setOnClickListener {
             cambiarColorBoton(it as Button)
             mostrarContenedor(contenedorMensajes)
-            mostrarContenedorLinear(linearLayoutAprobar)
+
             val nombreUsuario = obtenerNombreUsuario()
             if (nombreUsuario != null) {
                obtenerMensajesPendientes()
@@ -101,11 +101,6 @@ class AdminActivity : AppCompatActivity() {
     private fun mostrarContenedor(contenedorMostrado: FrameLayout) {
         contenedorMensajes.visibility = View.GONE
         contenedorEnviar.visibility = View.GONE
-        linearLayoutAprobar.visibility = View.GONE
-        contenedorMostrado.visibility = View.VISIBLE
-    }
-    private fun mostrarContenedorLinear(contenedorMostrado: LinearLayout){
-        linearLayoutAprobar.visibility = View.GONE
         contenedorMostrado.visibility = View.VISIBLE
     }
 
