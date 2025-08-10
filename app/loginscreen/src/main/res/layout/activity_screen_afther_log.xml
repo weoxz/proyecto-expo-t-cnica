@@ -17,6 +17,8 @@
         android:layout_width="312dp"
         android:layout_height="52dp"
         android:textSize="15dp"
+        android:textColor="@color/white"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
@@ -30,6 +32,8 @@
         android:layout_height="53dp"
         android:background="@drawable/rounded_box"
         android:gravity="center"
+        android:textColor="@color/white"
+
 
         android:text="Nombre completo:                                                                     "
         android:visibility="invisible"
@@ -45,6 +49,8 @@
         android:layout_width="379dp"
         android:layout_height="53dp"
         android:background="@drawable/rounded_box"
+        android:textColor="@color/white"
+
         android:gravity="center"
         android:text="Cedula      -->     Seleccionar Imagen                                       "
         android:visibility="invisible"
@@ -61,6 +67,7 @@
         android:layout_height="53dp"
         android:background="@drawable/rounded_box"
         android:gravity="center"
+        android:textColor="@color/white"
 
         android:text="Sección:                                                                                        "
         android:visibility="invisible"
@@ -73,6 +80,8 @@
     <EditText
         android:id="@+id/numTelefonico"
         android:layout_width="307dp"
+        android:textColor="@color/white"
+
         android:layout_height="50dp"
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -88,6 +97,8 @@
         android:layout_height="53dp"
         android:background="@drawable/rounded_box"
         android:gravity="center"
+        android:textColor="@color/white"
+
 
         android:text="Numero de telefono:                                                                  "
         android:visibility="invisible"
@@ -101,6 +112,7 @@
         android:id="@+id/Grado"
         android:layout_width="256dp"
         android:layout_height="25dp"
+        android:textColor="@color/white"
         android:background="@drawable/rounded_box"
         android:gravity="center"
         android:text="Grado:                                                                                          "
@@ -117,6 +129,7 @@
         android:layout_width="316dp"
         android:layout_height="51dp"
         android:textSize="15dp"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.526"
@@ -130,6 +143,7 @@
         android:layout_height="25dp"
         android:background="@drawable/rounded_box"
         android:gravity="center"
+        android:textColor="@color/white"
         android:text="Grado:                                                                                          "
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -143,6 +157,7 @@
         android:id="@+id/NumCedula"
         android:layout_width="317dp"
         android:layout_height="52dp"
+        android:textColor="@color/white"
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -155,6 +170,7 @@
         android:id="@+id/SeccionEstudiante"
         android:layout_width="313dp"
         android:layout_height="50dp"
+        android:textColor="@color/white"
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -168,6 +184,7 @@
         android:layout_width="289dp"
         android:layout_height="20dp"
         android:text="Seleccionar"
+        android:textColor="@color/white"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -181,6 +198,7 @@
         android:layout_width="67dp"
         android:layout_height="46dp"
         android:layout_marginTop="16dp"
+        android:textColor="@color/white"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

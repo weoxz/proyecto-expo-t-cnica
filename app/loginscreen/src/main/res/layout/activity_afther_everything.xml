@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AftherEverything"
-    android:background="@drawable/loginscreeen">
+    android:background="@drawable/studentimagennn">
 
     <!-- Botón Mensajes (posición original) -->
 
@@ -63,6 +63,8 @@
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/white"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnEnviarMensaje">
 
@@ -72,12 +74,16 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
+                android:textColor="@color/white"
+
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerMensajes"
                     android:layout_width="match_parent"
+                    android:textColor="@color/white"
+
                     android:layout_height="534dp"
                     android:padding="16dp"
                     android:scrollbars="vertical">
@@ -110,6 +116,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
+
                 android:text="STUDENT DATA"
                 android:textSize="18sp" />
 
@@ -117,29 +125,39 @@
                 android:id="@+id/NomText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
+
                 android:text="NOMBRE:" />
 
             <TextView
                 android:id="@+id/numTextcedu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
+
                 android:text="NUMERO DE CEDULA:" />
 
             <TextView
                 android:id="@+id/numTeltext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
+
                 android:text="NUMERO TELEFONICO:" />
 
             <TextView
                 android:id="@+id/seccText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
+
                 android:text="SECCIÓN:" />
 
             <TextView
                 android:id="@+id/gradoText"
                 android:layout_width="match_parent"
+                android:textColor="@color/white"
+
                 android:layout_height="wrap_content"
                 android:text="GRADO:" />
         </LinearLayout>
@@ -150,6 +168,8 @@
         android:id="@+id/contenedorEnviar"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:textColor="@color/white"
+
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -165,6 +185,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
+
                 android:text="SEND MESSAGES"
                 android:textSize="18sp" />
 
@@ -172,11 +194,15 @@
                 android:id="@+id/remitnete"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
+
                 android:hint="Ingrese el remitente" />
 
             <EditText
                 android:id="@+id/destinatario"
                 android:layout_width="match_parent"
+                android:textColor="@color/white"
+
                 android:layout_height="wrap_content"
                 android:hint="Ingrese el destinatario" />
 
@@ -184,11 +210,15 @@
                 android:id="@+id/mensaje"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
+
                 android:hint="Escribe tu mensaje" />
 
             <Button
                 android:id="@+id/send_mensaje"
                 android:layout_width="wrap_content"
+                android:textColor="@color/white"
+
                 android:layout_height="wrap_content"
                 android:onClick="ClickSendMesajes"
                 android:text="SEND" />

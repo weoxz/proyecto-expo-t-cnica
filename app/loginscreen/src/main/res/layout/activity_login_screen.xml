@@ -57,6 +57,8 @@
         android:layout_width="198dp"
         android:layout_height="47dp"
         android:backgroundTint="#17181c"
+        android:textColor="@color/white"
+
         android:text="Aun no tengo cuenta"
         app:cornerRadius="0dp"
         app:layout_constraintBottom_toBottomOf="parent"

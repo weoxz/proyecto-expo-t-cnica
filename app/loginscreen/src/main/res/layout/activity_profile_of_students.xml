@@ -46,6 +46,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="visible"
+        android:textColor="@color/white"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.024"
@@ -61,6 +63,8 @@
 
             <TextView
                 android:layout_width="match_parent"
+                android:textColor="@color/white"
+
                 android:layout_height="wrap_content"
                 android:text="STUDENT DATA"
                 android:textSize="18sp" />
@@ -68,12 +72,16 @@
             <TextView
                 android:id="@+id/NomText"
                 android:layout_width="match_parent"
+                android:textColor="@color/white"
+
                 android:layout_height="wrap_content"
                 android:text="NOMBRE:" />
 
             <TextView
                 android:id="@+id/numTextcedu"
                 android:layout_width="match_parent"
+                android:textColor="@color/white"
+
                 android:layout_height="wrap_content"
                 android:text="NUMERO DE CEDULA:" />
 
@@ -81,11 +89,15 @@
                 android:id="@+id/numTeltext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
+
                 android:text="NUMERO TELEFONICO:" />
 
             <TextView
                 android:id="@+id/seccText"
                 android:layout_width="match_parent"
+                android:textColor="@color/white"
+
                 android:layout_height="wrap_content"
                 android:text="SECCIÓN:" />
 
@@ -93,6 +105,8 @@
                 android:id="@+id/gradoText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
+
                 android:text="GRADO:" />
 
             <Button
@@ -121,6 +135,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
+        android:textColor="@color/white"
+
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.911">
@@ -137,6 +154,8 @@
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recyclerMensajes"
                         android:layout_width="match_parent"
+                        android:textColor="@color/white"
+
                         android:layout_height="534dp"
                         android:padding="16dp"
                         android:scrollbars="vertical">

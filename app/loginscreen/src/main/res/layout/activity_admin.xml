@@ -74,6 +74,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:visibility="gone"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -89,30 +90,40 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="SEND MESSAGES"
+                android:textColor="@color/white"
+
                 android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/remitnete"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
+
                 android:hint="Ingrese el remitente" />
 
             <EditText
                 android:id="@+id/destinatario"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
+
                 android:hint="Ingrese el destinatario" />
 
             <EditText
                 android:id="@+id/mensaje"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
+
                 android:hint="Escribe tu mensaje" />
 
             <Button
                 android:id="@+id/send_mensaje"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
+
                 android:onClick="ClickSendMesajes"
                 android:text="SEND" />
 
