@@ -105,7 +105,7 @@ class AdminActivity : AppCompatActivity() {
     }
 
     fun ClickSendMesajes(view: View) {
-        val url = "http://192.168.100.130/android_mysql_proyectExpotecnica/enviar_mensaje.php"
+        val url = ApiConfig.BASE_URL + "enviar_mensaje.php"
         val queue = Volley.newRequestQueue(view.context)
 
         val resultadoPost = object : StringRequest(
@@ -155,7 +155,7 @@ class AdminActivity : AppCompatActivity() {
 
 
     private fun obtenerMensajesPendientes() {
-        val url = "http://192.168.100.130/android_mysql_proyectExpotecnica/obtener_mensajes_pendientes.php"
+        val url = ApiConfig.BASE_URL + "obtener_mensajes_pendientes.php"
         val request = StringRequest(Request.Method.GET, url,
             { response ->
                 val jsonArray = JSONArray(response)

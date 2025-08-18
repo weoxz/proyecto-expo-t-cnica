@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AftherEverything"
-    android:background="@drawable/studentimagennn">
+    android:background="@drawable/loginscreeen">
 
     <!-- Botón Mensajes (posición original) -->
 
@@ -26,19 +26,6 @@
         app:layout_constraintVertical_bias="0.044" />
 
     <!-- Botón Datos Estudiante (posición original) -->
-    <Button
-        android:id="@+id/btnDatosEstudiante"
-        android:layout_width="125dp"
-        android:layout_height="53dp"
-        android:backgroundTint="@color/gray"
-        android:text="Datos Estudiante"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.451"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.045" />
 
     <!-- Botón Enviar Mensaje (posición original) -->
     <Button
@@ -63,8 +50,6 @@
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:textColor="@color/white"
-
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnEnviarMensaje">
 
@@ -74,16 +59,12 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:textColor="@color/white"
-
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerMensajes"
                     android:layout_width="match_parent"
-                    android:textColor="@color/white"
-
                     android:layout_height="534dp"
                     android:padding="16dp"
                     android:scrollbars="vertical">
@@ -97,79 +78,9 @@
 
 
     <FrameLayout
-        android:id="@+id/contenedorDatos"
-        android:layout_width="416dp"
-        android:layout_height="626dp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <!-- Contenido de Datos Estudiante -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp"
-            tools:ignore="MissingConstraints">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-
-                android:text="STUDENT DATA"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/NomText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-
-                android:text="NOMBRE:" />
-
-            <TextView
-                android:id="@+id/numTextcedu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-
-                android:text="NUMERO DE CEDULA:" />
-
-            <TextView
-                android:id="@+id/numTeltext"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-
-                android:text="NUMERO TELEFONICO:" />
-
-            <TextView
-                android:id="@+id/seccText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-
-                android:text="SECCIÓN:" />
-
-            <TextView
-                android:id="@+id/gradoText"
-                android:layout_width="match_parent"
-                android:textColor="@color/white"
-
-                android:layout_height="wrap_content"
-                android:text="GRADO:" />
-        </LinearLayout>
-    </FrameLayout>
-
-
-    <FrameLayout
         android:id="@+id/contenedorEnviar"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:textColor="@color/white"
-
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -185,8 +96,6 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
-
                 android:text="SEND MESSAGES"
                 android:textSize="18sp" />
 
@@ -194,15 +103,11 @@
                 android:id="@+id/remitnete"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
-
                 android:hint="Ingrese el remitente" />
 
             <EditText
                 android:id="@+id/destinatario"
                 android:layout_width="match_parent"
-                android:textColor="@color/white"
-
                 android:layout_height="wrap_content"
                 android:hint="Ingrese el destinatario" />
 
@@ -210,15 +115,11 @@
                 android:id="@+id/mensaje"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
-
                 android:hint="Escribe tu mensaje" />
 
             <Button
                 android:id="@+id/send_mensaje"
                 android:layout_width="wrap_content"
-                android:textColor="@color/white"
-
                 android:layout_height="wrap_content"
                 android:onClick="ClickSendMesajes"
                 android:text="SEND" />

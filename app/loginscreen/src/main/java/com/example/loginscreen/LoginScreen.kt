@@ -18,7 +18,7 @@ class LoginScreen : AppCompatActivity() {
     private lateinit var btnLogin: MaterialButton
     private lateinit var btnIrRegistro: MaterialButton
 
-    private val url = "http://192.168.100.130/android_mysql_proyectExpotecnica/login.php"
+    private val url = ApiConfig.BASE_URL + "login.php"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

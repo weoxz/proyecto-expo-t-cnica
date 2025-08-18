@@ -47,7 +47,7 @@ class SecondSignScreen : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            val url = "http://192.168.100.130/android_mysql_proyectExpotecnica/registroLog.php"
+            val url = ApiConfig.BASE_URL + "registroLog.php"
 
             val stringRequest = object : StringRequest(
                 Method.POST, url,

@@ -115,8 +115,7 @@ class AftherEverything : AppCompatActivity() {
     }
 
     private fun obtenerDatosEstudiante(idUsuario: String) {
-        val url =
-            "http://192.168.100.130/android_mysql_proyectExpotecnica/registro.php?id=$idUsuario"
+        val url = ApiConfig.BASE_URL + "registro.php?id=$idUsuario"
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,
@@ -153,7 +152,7 @@ class AftherEverything : AppCompatActivity() {
     }
 
     fun ClickSendMesajes(view: View) {
-        val url = "http://192.168.100.130/android_mysql_proyectExpotecnica/enviar_mensaje.php"
+        val url = ApiConfig.BASE_URL + "enviar_mensaje.php"
         val queue = Volley.newRequestQueue(view.context)
 
         val sharedPref = getSharedPreferences("usuario_prefs", MODE_PRIVATE)
@@ -221,8 +220,7 @@ class AftherEverything : AppCompatActivity() {
     }
 
     private fun obtenerMensajes(nombre: String) {
-        val url =
-            "http://192.168.100.130/android_mysql_proyectExpotecnica/obtener_mensajes.php?destinatario=${
+        val url = ApiConfig.BASE_URL + "obtener_mensajes.php?destinatario=${
                 java.net.URLEncoder.encode(
                     nombre,
                     "UTF-8"

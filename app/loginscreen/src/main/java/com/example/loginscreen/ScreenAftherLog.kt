@@ -205,7 +205,7 @@ class ScreenAftherLog : AppCompatActivity() {
     }
 
     fun clickButtonUpdateDB(view: View) {
-        val url = "http://192.168.100.130/android_mysql_proyectExpotecnica/insertar_Estudiantes.php"
+        val url = ApiConfig.BASE_URL + "insertar_Estudiantes.php"
         val queue = Volley.newRequestQueue(this)
 
         val resultadoPost = object : StringRequest(

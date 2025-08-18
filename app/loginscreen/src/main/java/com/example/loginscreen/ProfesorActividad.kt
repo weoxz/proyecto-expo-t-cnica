@@ -119,7 +119,7 @@ class ProfesorActividad : AppCompatActivity() {
     }
 
     fun ClickSendMesajes(view: View) {
-        val url = "http://192.168.100.130/android_mysql_proyectExpotecnica/enviar_mensaje.php"
+        val url = ApiConfig.BASE_URL + "enviar_mensaje.php"
         val queue = Volley.newRequestQueue(view.context)
 
         val resultadoPost = object : StringRequest(
@@ -166,8 +166,7 @@ class ProfesorActividad : AppCompatActivity() {
         queue.add(resultadoPost)
     }
     private fun obtenerMensajes(nombre: String) {
-        val url =
-            "http://192.168.100.130/android_mysql_proyectExpotecnica/obtener_mensajes.php?destinatario=${
+        val url = ApiConfig.BASE_URL + "obtener_mensajes.php?destinatario=${
                 java.net.URLEncoder.encode(
                     nombre,
                     "UTF-8"
